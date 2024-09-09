@@ -239,6 +239,7 @@
 
 import React, { useRef, useEffect } from 'react';
 import { View, Text, Animated, StyleSheet } from 'react-native';
+import Counter from './Counter';
 
 const AnimatedTextComponent = () => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -256,6 +257,8 @@ const AnimatedTextComponent = () => {
       <Animated.Text style={[styles.text, { opacity: fadeAnim }]}>
         Bem-vindo ao React Native!
       </Animated.Text>
+      <Counter />
+
     </View>
   );
 };
