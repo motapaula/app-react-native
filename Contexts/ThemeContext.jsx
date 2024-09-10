@@ -1,14 +1,13 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 
-// Definindo as cores para modo claro e escuro
 const lightMode = {
-    background: "#ffffff",
-    textColor: "#000000"
+    background: "#FAFAFA",
+    textColor: "#555555"
   };
   
   const darkMode = {
-    background: "#000000",
-    textColor: "#ffffff"
+    background: "#404040",
+    textColor: "#fafafa"
   };
   
 
@@ -17,12 +16,11 @@ export const ThemeContext = createContext();
 export const ThemeProvider = ({ children }) => {
     const [ theme, setTheme ] = useState("lightMode");
 
-    const toggleTheme = (selectTheme) => {
-        setTheme(selectTheme);
+    const toggleTheme = () => {
+        setTheme(theme === "lightMode" ? "darkMode" : "lightMode");
     };
 
-    const currentTheme = theme === "lightMode" ? lightMode : darkMode;
-
+    
     return (
         <ThemeContext.Provider value={{theme, toggleTheme}}>
             {children}

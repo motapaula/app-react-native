@@ -241,9 +241,9 @@ import React, { useRef, useEffect } from 'react';
 import { View, Text, Animated, StyleSheet } from 'react-native';
 import Counter from './Counter';
 import { ThemeProvider, ThemeContext } from './Contexts/ThemeContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AiOutlineSun, AiOutlineMoon } from "react-icons/ai";
-
+import InputComponent from './InputComponent';
 
 const AnimatedTextComponent = () => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -265,8 +265,11 @@ const AnimatedTextComponent = () => {
         </Animated.Text>
         <Counter />
         <DisplayTheme />
+        <InputComponent />
+
 
       </ThemeProvider>
+
         
     </View>
 
@@ -281,11 +284,13 @@ export const DisplayTheme = () => {
     <div>
       <p>O tema atual da página é {theme === "lightMode" ? "Claro" : "Escuro"}</p>
       
-      <button onClick={() => toggleTheme("lightMode")}>Tema Claro <AiOutlineSun /></button>
-      <button onClick={() => toggleTheme("darkMode")}>Tema Escuro <AiOutlineMoon /></button>
+      <button onClick={() => toggleTheme("lightMode")}>Tema Escuro <AiOutlineMoon /></button>
+      <button onClick={() => toggleTheme("darkMode")}>Tema Claro <AiOutlineSun /></button>
     </div>
   );
 };
+
+
 
 
 const styles = StyleSheet.create({
