@@ -9,11 +9,12 @@ const InputComponent = () => {
       <View>
         <p>Campo de pesquisa:</p>
         <TextInput
+          style={{height: 40}}
           placeholder="Digite aqui sua pesquisa"
           value={initialValue}
           onChangeText={(text) => setValue(text)} // Arrow function para atualizar o estado
         />
-        <Text>Você digitou: {initialValue}</Text>
+        <Text style={{padding: 10, fontSize: 24}}>Você digitou: {initialValue}</Text>
       </View>
   );
 }

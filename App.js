@@ -244,6 +244,7 @@ import { ThemeProvider, ThemeContext } from './Contexts/ThemeContext';
 import { useContext, useState } from 'react';
 import { AiOutlineSun, AiOutlineMoon } from "react-icons/ai";
 import InputComponent from './InputComponent';
+import ThemeSwitcher from './ThemeSwitcher';
 
 const AnimatedTextComponent = () => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -266,6 +267,7 @@ const AnimatedTextComponent = () => {
         <Counter />
         <DisplayTheme />
         <InputComponent />
+        <ThemeSwitcher />
 
 
       </ThemeProvider>

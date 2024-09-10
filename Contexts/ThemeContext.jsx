@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from "react";
+import React, { createContext, useState, useContext } from "react";
 
 const lightMode = {
     background: "#FAFAFA",
@@ -22,7 +22,7 @@ export const ThemeProvider = ({ children }) => {
 
     
     return (
-        <ThemeContext.Provider value={{theme, toggleTheme}}>
+        <ThemeContext.Provider value={{theme, toggleTheme, setTheme}}>
             {children}
         </ThemeContext.Provider>
     );
