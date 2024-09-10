@@ -240,6 +240,10 @@
 import React, { useRef, useEffect } from 'react';
 import { View, Text, Animated, StyleSheet } from 'react-native';
 import Counter from './Counter';
+import { ThemeProvider, ThemeContext } from './Contexts/ThemeContext';
+import { useContext } from 'react';
+import { AiOutlineSun, AiOutlineMoon } from "react-icons/ai";
+
 
 const AnimatedTextComponent = () => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -253,15 +257,36 @@ const AnimatedTextComponent = () => {
   }, [fadeAnim]);
 
   return (
+    
     <View style={styles.container}>
-      <Animated.Text style={[styles.text, { opacity: fadeAnim }]}>
-        Bem-vindo ao React Native!
-      </Animated.Text>
-      <Counter />
+      <ThemeProvider>
+        <Animated.Text style={[styles.text, { opacity: fadeAnim }]}>
+          Bem-vindo ao React Native!
+        </Animated.Text>
+        <Counter />
+        <DisplayTheme />
 
+      </ThemeProvider>
+        
     </View>
+
+  );
+
+};
+
+export const DisplayTheme = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
+  return (
+    <div>
+      <p>O tema atual da página é {theme === "lightMode" ? "Claro" : "Escuro"}</p>
+      
+      <button onClick={() => toggleTheme("lightMode")}>Tema Claro <AiOutlineSun /></button>
+      <button onClick={() => toggleTheme("darkMode")}>Tema Escuro <AiOutlineMoon /></button>
+    </div>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {
@@ -275,5 +300,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AnimatedTextComponent;
+export default AnimatedTextComponent ;
 

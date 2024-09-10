@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
-import { StyleSheet } from "react-native-web";
 
 function Counter() {
     const [count, setCount] = useState(0);

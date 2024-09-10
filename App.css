@@ -1,0 +1,12 @@
+.darkMode, 
+.darkMode p {
+
+    background-color: #404040;
+    color: #fafafa;
+};
+
+.lightMode, 
+.lightMode p {
+    background-color: #fafafa;
+    color: #555555;
+};
